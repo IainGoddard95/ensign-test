@@ -1,0 +1,116 @@
+.component {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+
+	height: 100vh;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	margin-bottom: 2rem;
+	width: 75%;
+
+	img {
+		margin-right: 1rem;
+	}
+
+	p {
+		font-size: 2rem;
+		font-weight: bold;
+	}
+}
+
+.login {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	width: 40%;
+
+	.title {
+		margin-bottom: 1rem;
+		text-align: left;
+		width: 75%;
+	}
+
+	form {
+		align-items: center;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		display: flex;
+		flex-direction: column;
+		padding: 2rem;
+		width: 75%;
+
+		> div {
+			margin-bottom: 1rem;
+			width: 100%;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			label {
+				display: block;
+				margin-bottom: 0.5rem;
+				font-size: 0.8rem;
+				width: 100%;
+			}
+
+			input {
+				border: 1px solid #ccc;
+				border-radius: 2.5px;
+				font-size: 1rem;
+				padding: 0.5rem;
+				width: 100%;
+			}
+		}
+
+		button {
+			background: #136cd6;
+			border: none;
+			border-radius: 2.5px;
+			color: #fff;
+			cursor: pointer;
+			font-size: 1rem;
+			padding: 0.5rem;
+			transition: all 0.25s;
+			width: 100%;
+
+			&:hover {
+				background: #0f5cbb;
+			}
+		}
+	}
+}
+
+.pane {
+	background: #136cd6;
+
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	justify-content: center;
+	flex-grow: 1;
+	padding-left: 6rem;
+
+	height: 100vh;
+
+	img {
+		margin-bottom: 2rem;
+	}
+
+	p {
+		color: #fff;
+		font-size: 1.5rem;
+		font-weight: medium;
+		margin-bottom: 1rem;
+
+		&.bold {
+			font-weight: bold;
+		}
+	}
+}
