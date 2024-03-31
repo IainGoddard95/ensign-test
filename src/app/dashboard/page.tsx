@@ -1,14 +1,40 @@
-const exampleProjects = [{ title: 'Mock Project 1', description: 'Mock Project 1' }, { title: 'Mock Project 2', description: 'Mock Project 2' }]
+'use client'
+import { ProjectDTO } from "@/models/project";
+import { getProjects } from "@/services/project_service";
+import { useEffect, useState } from "react"
+import styles from './dashboard.module.scss'
+import { LoadingAnimation } from "../components/LoadingAnimation";
+import { ProjectListItem } from "../components/ProjectListItem";
+
+
 const ProjectDashboard = () => {
-  return (
-    exampleProjects.map((project, index) => {
+  const [projects, setProjects] = useState<ProjectDTO[]>([]);
+
+  useEffect(() => {
+    async function initProjects() {
+      var projects = await getProjects();
+      setProjects(projects);
+    }
+
+    initProjects()
+  }, [])
+
+  const printProjects = 
+    projects.map((project, index) => {
       return (
-        <div>
-          <h1>{project.title}</h1>
-          <p>{project.description}</p>
-        </div>
+        <ProjectListItem project={project} />
       )
     })
+  
+  return (
+    <div className={`flex_center ${styles.page_wrapper}`}>
+      <div id="panel" className={`border_radius_sm ${styles.panel}`}>
+        <div className={`${styles.list_wrapper}`}>
+          <>{projects.length == 0 ? <LoadingAnimation /> : printProjects}</>
+        </div>
+      </div>
+
+    </div>
   )
 }
 

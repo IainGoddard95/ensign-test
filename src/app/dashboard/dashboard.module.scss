@@ -1,0 +1,82 @@
+.page_wrapper {
+    height: 100vh;
+    width: 100vw;
+    background: #136cd6;
+
+    .panel {
+
+        @media screen and (max-width: 900px) {
+            height:100vh;
+            width: 100vw;
+            border-radius: 0;
+        }
+        height:75%;
+        width: 75%;
+        background: #e8e8e8;
+        overflow-y: scroll;
+    }
+}
+
+.list_wrapper {
+    padding: 2.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+
+    .list_item {
+
+        @media screen and (max-width: 740px) {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        width: 100%;
+        padding: 1em;
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        background: #e3e3e3;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        * {
+            min-width: 100px
+        }
+
+        .project_number {
+            text-align: center;
+            background: #136cd6;
+            color: #e3e3e3;
+            padding: 0.225em;
+        }
+
+        .project_title {
+            font-weight: 600;
+        }
+
+        .description {
+            flex-grow: 1;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .project_value {
+
+            @media screen and (max-width: 740px) {
+                text-align: center;
+            }
+            text-align: right;
+        }
+
+        .project_status {
+            text-align: center;
+            padding: 0.225em;
+            outline: 1px solid #136cd6;
+        }
+    }
+}

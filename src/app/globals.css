@@ -85,10 +85,32 @@ body {
 	overflow-x: hidden;
 }
 
-body {
-}
-
 a {
 	color: inherit;
 	text-decoration: none;
+}
+
+.flex_center {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.border_radius_sm {
+	border-radius: 10px;
+}
+
+#panel::-webkit-scrollbar {
+    width: 0.5em;
+}
+ 
+#panel::-webkit-scrollbar-track {
+	-webkit-box-shadow: none !important;
+
+    margin: 0.5em !important;
+}
+ 
+#panel::-webkit-scrollbar-thumb {
+  background-color: #136cd6;
+  border-radius: 25px 0 0 25px !important;
 }

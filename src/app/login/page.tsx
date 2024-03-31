@@ -1,11 +1,15 @@
+'use client'
 import Image from 'next/image'
-
+import { useFormState } from 'react-dom'
 import EnsignIcon from '@/assets/ensign.svg'
 import EnsignIconWhite from '@/assets/ensign-white.svg'
 
 import styles from './login.module.scss'
+import { authenticate } from '@/services/auth_service'
 
 const Login = () => {
+  const [errorMessage, dispatch] = useFormState(authenticate, undefined)
+
   return (
     <div className={styles.component}>
       <div className={styles.login}>
@@ -17,16 +21,17 @@ const Login = () => {
           <h1>Login</h1>
           <p>Please enter your Tech Test credentials</p>
         </div>
-        <form>
+        <form action={dispatch}>
           <div>
             <label>Username</label>
-            <input type="text" />
+            <input type="email" name="email" required />
           </div>
           <div>
             <label htmlFor="password">Password</label>
-            <input type="password" />
+            <input type="password" name="password" required />
           </div>
           <button type="submit">Login to Ensign</button>
+          <>{errorMessage && <p className={styles.error}>{errorMessage}</p>}</>
         </form>
       </div>
       <div className={styles.pane}>
